@@ -11,7 +11,8 @@ namespace GameStation.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<WishList> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Wishlists");
+            builder.HasKey(x => x.WishListID);
         }
     }
 }
