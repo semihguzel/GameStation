@@ -20,7 +20,7 @@ namespace MVCeTicaret.Models
         public int PaymentID { get; set; }
 
         [Required, ForeignKey("ShippingDetail")]
-        public int ShippingID { get; set; }
+        public int ShippingDetailID { get; set; }
 
         public decimal Discount { get; set; }
 

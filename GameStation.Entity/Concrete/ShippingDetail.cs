@@ -10,7 +10,7 @@ namespace MVCeTicaret.Models
     public class ShippingDetail : IEntity
     {
         [Key]
-        public int ShippingID { get; set; }
+        public int ShippingDetailID { get; set; }
 
         [Required, MaxLength(50)]
         public string FirstName { get; set; }
