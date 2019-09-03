@@ -37,6 +37,8 @@ namespace GameStation.DAL.Mappings
             builder.HasMany(x => x.RecentlyViews).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
             builder.HasMany(x => x.Reviews).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
             builder.HasMany(x => x.WishLists).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
+
+            builder.HasOne(x => x.CustomIdentityUser).WithOne(x => x.Customer).HasForeignKey<Customer>(e => e.CustomerID);
         }
     }
 }

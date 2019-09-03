@@ -1,5 +1,6 @@
 ﻿using GameStation.DAL.Mappings;
 using GameStation.Entity.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace GameStation.DAL.Concrete.EntityFramework
 {
-    public class GameStationContext : DbContext
+    public class GameStationContext : IdentityDbContext<CustomIdentityUser,CustomIdentityRole,string>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

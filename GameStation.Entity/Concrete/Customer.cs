@@ -10,7 +10,7 @@ namespace GameStation.Entity.Concrete
 {
     public class Customer : IEntity
     {
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
 
         public string FirstName { get; set; }
 
@@ -59,6 +59,7 @@ namespace GameStation.Entity.Concrete
         public string Notes { get; set; }
 
 
+        public virtual CustomIdentityUser CustomIdentityUser { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 

@@ -12,7 +12,7 @@ namespace GameStation.Entity.Concrete
     {
         public int ReviewID { get; set; }
 
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
 
         public int ProductID { get; set; }
 

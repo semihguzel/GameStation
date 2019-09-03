@@ -14,7 +14,7 @@ namespace GameStation.Entity.Concrete
 
         public int ProductID { get; set; }
 
-        public int CustomerID { get; set; }
+        public string CustomerID { get; set; }
 
         public bool IsCompleted { get; set; }
 
