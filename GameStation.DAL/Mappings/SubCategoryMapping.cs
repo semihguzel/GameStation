@@ -19,6 +19,29 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.Picture2).HasMaxLength(500);
 
             builder.HasMany(x => x.Products).WithOne(x => x.SubCategory).HasForeignKey(x => x.SubCategoryID).IsRequired();
+
+            //Seed
+            builder.HasData
+            (
+                new SubCategory
+                {
+                    Name = "FPS",
+                    IsActive = true,
+                    Description = "First Person Shooter games"
+                },
+                new SubCategory
+                {
+                    Name = "TPS",
+                    IsActive = true,
+                    Description = "Third Person Shooter games"
+                },
+                new SubCategory
+                {
+                    Name = "RPG",
+                    IsActive = true,
+                    Description = "Role Playing Game"
+                }
+            );
         }
     }
 }
