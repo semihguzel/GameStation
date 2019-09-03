@@ -11,7 +11,12 @@ namespace GameStation.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<Review> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Reviews");
+            builder.HasKey(x => x.ReviewID);
+            builder.Property(x => x.Name).HasMaxLength(100);
+            builder.Property(x => x.Email).HasMaxLength(50);
+            builder.Property(x => x.Comment).IsRequired().HasMaxLength(5000);
+            builder.Property(x => x.Datetime).HasColumnType("datetime2");
         }
     }
 }
