@@ -1,4 +1,5 @@
 ﻿using GameStation.BLL.Abstract;
+using GameStation.DAL.Abstract;
 using GameStation.Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,24 +9,40 @@ namespace GameStation.BLL.Concrete
 {
     public class ProductManager : IProductService
     {
+        private IProductDal _productDal;
+        public ProductManager(IProductDal productDal)
+        {
+            _productDal = productDal;
+        }
+
         public void Add(Product product)
         {
-            throw new NotImplementedException();
+            _productDal.Add(product);
         }
 
         public void Delete(int productId)
         {
-            throw new NotImplementedException();
+            _productDal.Delete(productId);
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _productDal.GetList();
+        }
+
+        public List<Product> GetByCategoryId(int categoryId)
+        {
+            return _productDal.GetList(x => x.SubCategoryID == categoryId);
+        }
+
+        public Product GetById(int productId)
+        {
+            return _productDal.Get(x => x.ProductID == productId);
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            _productDal.Update(product);
         }
     }
 }
