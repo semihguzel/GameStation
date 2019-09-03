@@ -9,37 +9,26 @@ namespace GameStation.Entity.Concrete
 {
     public class Supplier : IEntity
     {
-        [Key]
         public int SupplierID { get; set; }
 
-        [Required, MaxLength(50)]
         public string CompanyName { get; set; }
 
-        [MaxLength(50)]
         public string ContactName { get; set; }
 
-        [MaxLength(50)]
         public string ContactTitle { get; set; }
 
-        [MaxLength(150)]
         public string Address { get; set; }
 
-        [MaxLength(20)]
         public string Mobile { get; set; }
 
-        [MaxLength(20)]
         public string Phone { get; set; }
 
-        [MaxLength(20)]
         public string Fax { get; set; }
 
-        [MaxLength(50)]
         public string Email { get; set; }
 
-        [MaxLength(20)]
         public string City { get; set; }
 
-        [MaxLength(20)]
         public string Country { get; set; }
 
 

@@ -10,28 +10,22 @@ namespace GameStation.Entity.Concrete
 {
     public class OrderDetail : IEntity
     {
-        [Key]
         public int OrderDetailID { get; set; }
 
-        [Required, ForeignKey("Product")]
         public int ProductID { get; set; }
 
-        [Required, ForeignKey("Customer")]
         public int CustomerID { get; set; }
 
         public bool IsCompleted { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal UnitPrice { get; set; }
 
         public int Quantity { get; set; }
 
         public decimal Discount { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal TotalAmount { get; set; }
 
-        [Column(TypeName = "datetime2")]
         public DateTime OrderDate { get; set; }
 
 

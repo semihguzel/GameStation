@@ -9,13 +9,10 @@ namespace GameStation.Entity.Concrete
 {
     public class PaymentType : IEntity
     {
-        [Key]
         public int PaymentTypeID { get; set; }
 
-        [Required, MaxLength(100)]
         public string TypeName { get; set; }
 
-        [MaxLength(150)]
         public string Description { get; set; }
 
 

@@ -10,27 +10,20 @@ namespace GameStation.Entity.Concrete
 {
     public class Review : IEntity
     {
-        [Key]
         public int ReviewID { get; set; }
 
-        [Required, ForeignKey("Customer")]
         public int CustomerID { get; set; }
 
-        [Required, ForeignKey("Product")]
         public int ProductID { get; set; }
 
-        [MaxLength(100)]
         public string Name { get; set; }
 
-        [MaxLength(50)]
         public string Email { get; set; }
 
-        [Required, MaxLength(500)]
         public string Comment { get; set; }
 
         public int Rate { get; set; }
 
-        [Column(TypeName = "datetime2")]
         public DateTime Datetime { get; set; }
 
         public bool IsDeleted { get; set; }

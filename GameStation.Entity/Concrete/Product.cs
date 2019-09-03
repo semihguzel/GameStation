@@ -10,31 +10,22 @@ namespace GameStation.Entity.Concrete
 {
     public class Product : IEntity
     {
-        [Key]
         public int ProductID { get; set; }
 
-        [Required, MaxLength(200)]
         public string Name { get; set; }
 
-        [Required, ForeignKey("Supplier")]
         public int SupplierID { get; set; }
 
-        [Required, ForeignKey("SubCategory")]
         public int SubCategoryID { get; set; }
 
-        [MaxLength(20)]
         public string QuantityPerUnit { get; set; }
 
-        [Required, Column(TypeName = "money")]
         public decimal UnitPrice { get; set; }
 
-        [Column(TypeName = "money")]
         public decimal? OldPrice { get; set; }
 
-        [MaxLength(20)]
         public string UnitWeight { get; set; }
 
-        [MaxLength(20)]
         public string Size { get; set; }
 
         public decimal Discount { get; set; }
@@ -45,31 +36,22 @@ namespace GameStation.Entity.Concrete
 
         public bool? ProductAvailable { get; set; }
 
-        [Required, MaxLength(500)]
         public string ImageUrl { get; set; }
 
-        [Required, MaxLength(200)]
         public string AltText { get; set; }
 
-        [Required, MaxLength(300)]
         public string ShortDescription { get; set; }
 
-        [Required, MaxLength(2000)]
         public string LongDescription { get; set; }
 
-        [MaxLength(500)]
         public string Picture1 { get; set; }
 
-        [MaxLength(500)]
         public string Picture2 { get; set; }
 
-        [MaxLength(500)]
         public string Picture3 { get; set; }
 
-        [MaxLength(500)]
         public string Picture4 { get; set; }
 
-        [MaxLength(250)]
         public string Notes { get; set; }
 
 
