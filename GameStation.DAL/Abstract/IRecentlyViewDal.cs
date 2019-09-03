@@ -1,5 +1,5 @@
 ﻿using GameStation.Core.DAL;
-using MVCeTicaret.Models;
+using GameStation.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Text;

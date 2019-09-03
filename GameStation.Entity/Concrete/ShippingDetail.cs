@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace MVCeTicaret.Models
+namespace GameStation.Entity.Concrete
 {
     public class ShippingDetail : IEntity
     {

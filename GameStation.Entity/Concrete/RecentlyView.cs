@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace MVCeTicaret.Models
+namespace GameStation.Entity.Concrete
 {
     public class RecentlyView : IEntity
     {

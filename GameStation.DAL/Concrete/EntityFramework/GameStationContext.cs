@@ -1,6 +1,6 @@
 ﻿using GameStation.DAL.Mappings;
+using GameStation.Entity.Concrete;
 using Microsoft.EntityFrameworkCore;
-using MVCeTicaret.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
