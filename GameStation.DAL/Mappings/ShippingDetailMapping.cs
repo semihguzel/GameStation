@@ -22,7 +22,7 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.City).IsRequired().HasMaxLength(30);
             builder.Property(x => x.PostalCode).HasMaxLength(25);
 
-            builder.HasMany(x => x.Orders).WithOne(x => x.ShippingDetail).HasForeignKey(x => x.ShippingDetailID);
+            builder.HasMany(x => x.Orders).WithOne(x => x.ShippingDetail).HasForeignKey(x => x.ShippingDetailID).IsRequired();
         }
     }
 }
