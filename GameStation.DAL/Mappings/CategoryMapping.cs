@@ -29,28 +29,35 @@ namespace GameStation.DAL.Mappings
                     CategoryID = 1,
                     CategoryName = "FPS",
                     IsActive = true,
-                    Description = "First Person Shooter games",
+                    Description = "Birinci şahıs nişancı oyunları.",
                 },
                 new Category
                 {
                     CategoryID = 2,
                     CategoryName = "TPS",
                     IsActive = true,
-                    Description = "Third Person Shooter games"
+                    Description = "Üçüncü şahıs nişancı oyunları."
                 },
                 new Category
                 {
                     CategoryID = 3,
                     CategoryName = "RPG",
                     IsActive = true,
-                    Description = "Role Playing Game"
+                    Description = "Rol yapma oyunları"
                 },
                 new Category
                 {
                     CategoryID = 4,
                     CategoryName = "Strategy",
                     IsActive = true,
-                    Description = "Strategy Game"
+                    Description = "Strateji oyunları"
+                },
+                new Category
+                {
+                    CategoryID = 5,
+                    CategoryName = "Simülasyon",
+                    IsActive = true,
+                    Description = "Simülasyon oyunları"
                 }
             );
         }
