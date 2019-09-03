@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\GameStation.Core\GameStation.Core.csproj" />
     <ProjectReference Include="..\GameStation.Entity\GameStation.Entity.csproj" />
   </ItemGroup>
