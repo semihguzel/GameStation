@@ -11,7 +11,20 @@ namespace GameStation.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<Supplier> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Suppliers");
+            builder.HasKey(x => x.SupplierID);
+            builder.Property(x => x.CompanyName).IsRequired().HasMaxLength(50);
+            builder.Property(x => x.ContactName).HasMaxLength(50);
+            builder.Property(x => x.ContactTitle).HasMaxLength(50);
+            builder.Property(x => x.Address).HasMaxLength(150);
+            builder.Property(x => x.Mobile).HasMaxLength(20);
+            builder.Property(x => x.Phone).HasMaxLength(20);
+            builder.Property(x => x.Fax).HasMaxLength(20);
+            builder.Property(x => x.Email).HasMaxLength(50);
+            builder.Property(x => x.City).HasMaxLength(50);
+            builder.Property(x => x.Country).HasMaxLength(50);
+
+            builder.HasMany(x => x.Products).WithOne(x => x.Supplier).HasForeignKey(x => x.SupplierID).IsRequired();
         }
     }
 }
