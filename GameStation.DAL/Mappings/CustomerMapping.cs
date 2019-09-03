@@ -33,10 +33,10 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.LastLogin).HasColumnType("date");
             builder.Property(x => x.Notes).HasMaxLength(250);
             
-            builder.HasMany(x => x.OrderDetails).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID);
-            builder.HasMany(x => x.RecentlyViews).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID);
-            builder.HasMany(x => x.Reviews).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID);
-            builder.HasMany(x => x.WishLists).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID);
+            builder.HasMany(x => x.OrderDetails).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
+            builder.HasMany(x => x.RecentlyViews).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
+            builder.HasMany(x => x.Reviews).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
+            builder.HasMany(x => x.WishLists).WithOne(x => x.Customer).HasForeignKey(x => x.CustomerID).IsRequired();
         }
     }
 }

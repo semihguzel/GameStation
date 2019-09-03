@@ -29,10 +29,10 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.Picture4).HasMaxLength(500);
             builder.Property(x => x.Notes).HasMaxLength(250);
 
-            builder.HasMany(x => x.OrderDetails).WithOne(x => x.Product).HasForeignKey(x => x.ProductID);
-            builder.HasMany(x => x.RecentlyViews).WithOne(x => x.Product).HasForeignKey(x => x.ProductID);
-            builder.HasMany(x => x.Reviews).WithOne(x => x.Product).HasForeignKey(x => x.ProductID);
-            builder.HasMany(x => x.WishLists).WithOne(x => x.Product).HasForeignKey(x => x.ProductID);
+            builder.HasMany(x => x.OrderDetails).WithOne(x => x.Product).HasForeignKey(x => x.ProductID).IsRequired();
+            builder.HasMany(x => x.RecentlyViews).WithOne(x => x.Product).HasForeignKey(x => x.ProductID).IsRequired();
+            builder.HasMany(x => x.Reviews).WithOne(x => x.Product).HasForeignKey(x => x.ProductID).IsRequired();
+            builder.HasMany(x => x.WishLists).WithOne(x => x.Product).HasForeignKey(x => x.ProductID).IsRequired();
         }
     }
 }

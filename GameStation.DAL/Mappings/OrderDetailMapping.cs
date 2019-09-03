@@ -17,7 +17,7 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.TotalAmount).HasColumnType("money");
             builder.Property(x => x.OrderDate).HasColumnType("datetime2");
 
-            builder.HasMany(x => x.Orders).WithOne(x => x.OrderDetail).HasForeignKey(x => x.OrderDetailID);
+            builder.HasMany(x => x.Orders).WithOne(x => x.OrderDetail).HasForeignKey(x => x.OrderDetailID).IsRequired();
         }
     }
 }

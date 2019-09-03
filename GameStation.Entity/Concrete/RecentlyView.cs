@@ -11,7 +11,7 @@ namespace MVCeTicaret.Models
     public class RecentlyView : IEntity
     {
         [Key]
-        public int RViewID { get; set; }
+        public int RecentlyViewID { get; set; }
 
         [Required, ForeignKey("Customer")]
         public int CustomerID { get; set; }

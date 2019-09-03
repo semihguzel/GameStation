@@ -16,7 +16,7 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.TypeName).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Description).HasMaxLength(150);
 
-            builder.HasMany(x => x.Payments).WithOne(x => x.PaymentType).HasForeignKey(x => x.PaymentTypeID);
+            builder.HasMany(x => x.Payments).WithOne(x => x.PaymentType).HasForeignKey(x => x.PaymentTypeID).IsRequired();
         }
     }
 }

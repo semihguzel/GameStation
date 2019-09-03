@@ -18,7 +18,7 @@ namespace GameStation.DAL.Mappings
             builder.Property(x => x.Picture1).HasMaxLength(400);
             builder.Property(x => x.Picture2).HasMaxLength(400);
 
-            builder.HasMany(x => x.SubCategories).WithOne(x => x.Category).HasForeignKey(x => x.SubCategoryID);
+            builder.HasMany(x => x.SubCategories).WithOne(x => x.Category).HasForeignKey(x => x.SubCategoryID).IsRequired();
         }
     }
 }

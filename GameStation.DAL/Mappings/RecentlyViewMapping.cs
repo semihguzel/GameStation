@@ -11,7 +11,10 @@ namespace GameStation.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<RecentlyView> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("RecentlyViews");
+            builder.HasKey(x => x.RecentlyViewID);
+            builder.Property(x => x.ViewDate).HasColumnType("datetime2");
+            builder.Property(x => x.Notes).HasMaxLength(150);
         }
     }
 }
