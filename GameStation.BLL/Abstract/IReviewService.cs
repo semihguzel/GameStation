@@ -8,6 +8,8 @@ namespace GameStation.BLL.Abstract
     interface IReviewService
     {
         List<Review> GetAll();
+        Review GetById(int Id);
+
         void Add(Review review);
         void Update(Review review);
         void Delete(int reviewId);

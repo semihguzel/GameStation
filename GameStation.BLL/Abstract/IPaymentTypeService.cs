@@ -8,6 +8,8 @@ namespace GameStation.BLL.Abstract
     interface IPaymentTypeService
     {
         List<PaymentType> GetAll();
+        PaymentType GetById(int Id);
+
         void Add(PaymentType paymentType);
         void Update(PaymentType paymentType);
         void Delete(int paymentTypeId);

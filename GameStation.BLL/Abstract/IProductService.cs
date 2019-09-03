@@ -8,6 +8,8 @@ namespace GameStation.BLL.Abstract
     interface IProductService
     {
         List<Product> GetAll();
+        List<Product> GetByCategoryId(int categoryId);
+        Product GetById(int productId);
         void Add(Product product);
         void Update(Product product);
         void Delete(int productId);
