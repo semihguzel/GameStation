@@ -10,7 +10,7 @@ namespace MVCeTicaret.Models
     public class PaymentType : IEntity
     {
         [Key]
-        public int PayTypeID { get; set; }
+        public int PaymentTypeID { get; set; }
 
         [Required, MaxLength(100)]
         public string TypeName { get; set; }

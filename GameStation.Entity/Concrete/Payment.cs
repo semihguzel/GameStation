@@ -14,7 +14,7 @@ namespace MVCeTicaret.Models
         public int PaymentID { get; set; }
 
         [Required, ForeignKey("PaymentType")]
-        public int Type { get; set; }
+        public int PaymentTypeID { get; set; }
 
         [Column(TypeName = "money")]
         public decimal CreditAmount { get; set; }

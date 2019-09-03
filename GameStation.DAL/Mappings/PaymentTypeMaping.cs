@@ -11,7 +11,12 @@ namespace GameStation.DAL.Mappings
     {
         public void Configure(EntityTypeBuilder<PaymentType> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("PaymentTypes");
+            builder.HasKey(x => x.PaymentTypeID);
+            builder.Property(x => x.TypeName).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Description).HasMaxLength(150);
+
+            builder.HasMany(x => x.Payments).WithOne(x => x.PaymentType).HasForeignKey(x => x.PaymentTypeID);
         }
     }
 }
