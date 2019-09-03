@@ -267,29 +267,6 @@ namespace GameStation.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SubCategories",
-                columns: table => new
-                {
-                    SubCategoryID = table.Column<int>(nullable: false),
-                    CategoryID = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(maxLength: 50, nullable: false),
-                    Description = table.Column<string>(maxLength: 250, nullable: true),
-                    Picture1 = table.Column<string>(maxLength: 500, nullable: true),
-                    Picture2 = table.Column<string>(maxLength: 500, nullable: true),
-                    IsActive = table.Column<bool>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SubCategories", x => x.SubCategoryID);
-                    table.ForeignKey(
-                        name: "FK_SubCategories_Categories_SubCategoryID",
-                        column: x => x.SubCategoryID,
-                        principalTable: "Categories",
-                        principalColumn: "CategoryID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Payments",
                 columns: table => new
                 {
@@ -320,7 +297,7 @@ namespace GameStation.DAL.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     SupplierID = table.Column<int>(nullable: false),
-                    SubCategoryID = table.Column<int>(nullable: false),
+                    CategoryID = table.Column<int>(nullable: false),
                     QuantityPerUnit = table.Column<string>(maxLength: 50, nullable: true),
                     UnitPrice = table.Column<decimal>(type: "money", nullable: false),
                     OldPrice = table.Column<decimal>(type: "money", nullable: true),
@@ -332,7 +309,7 @@ namespace GameStation.DAL.Migrations
                     ProductAvailable = table.Column<bool>(nullable: true),
                     ImageUrl = table.Column<string>(maxLength: 500, nullable: false),
                     AltText = table.Column<string>(maxLength: 200, nullable: false),
-                    ShortDescription = table.Column<string>(maxLength: 300, nullable: false),
+                    ShortDescription = table.Column<string>(maxLength: 500, nullable: false),
                     LongDescription = table.Column<string>(maxLength: 1500, nullable: false),
                     Picture1 = table.Column<string>(maxLength: 500, nullable: true),
                     Picture2 = table.Column<string>(maxLength: 500, nullable: true),
@@ -344,10 +321,10 @@ namespace GameStation.DAL.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductID);
                     table.ForeignKey(
-                        name: "FK_Products_SubCategories_SubCategoryID",
-                        column: x => x.SubCategoryID,
-                        principalTable: "SubCategories",
-                        principalColumn: "SubCategoryID",
+                        name: "FK_Products_Categories_CategoryID",
+                        column: x => x.CategoryID,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Products_Suppliers_SupplierID",
@@ -522,6 +499,36 @@ namespace GameStation.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryID", "CategoryName", "Description", "IsActive", "Picture1", "Picture2" },
+                values: new object[,]
+                {
+                    { 1, "FPS", "First Person Shooter games", true, null, null },
+                    { 2, "TPS", "Third Person Shooter games", true, null, null },
+                    { 3, "RPG", "Role Playing Game", true, null, null },
+                    { 4, "Strategy", "Strategy Game", true, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Suppliers",
+                columns: new[] { "SupplierID", "Address", "City", "CompanyName", "ContactName", "ContactTitle", "Country", "Email", "Fax", "Mobile", "Phone" },
+                values: new object[,]
+                {
+                    { 1, null, null, "Steam", "Gabe Newell", "Founder", null, null, null, null, null },
+                    { 2, null, null, "Electronic Arts", "Trip Hawkins", "Founder", null, null, null, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductID", "AltText", "CategoryID", "Discount", "ImageUrl", "LongDescription", "Name", "Notes", "OldPrice", "Picture1", "Picture2", "Picture3", "Picture4", "ProductAvailable", "QuantityPerUnit", "ShortDescription", "Size", "SupplierID", "UnitOnOrder", "UnitPrice", "UnitWeight", "UnitsInStock" },
+                values: new object[] { 1, "Rimworld", 4, 0m, "C:\\Users\\semih\\source\\repos/Pictures//Pictures/ProductPictures/Steam/rimworld_logo.png", "The futuristic plot originally revolved around three characters being stranded on a planet located in the frontiers of known space (a 'rim world'), where their space liner crashed. The game is set in a universe where faster-than-light travel and superluminal communication are, so far, impossible, making large galactic empires inherently unfeasible. With its release on Steam the game came with the addition, among other things, of a scenario editor, allowing users to choose and modify different starting plots, with different numbers of characters, starting items and map effects available; however, the location of these plots still remained the same, that is, still on a 'rim world'", "RimWorld", null, null, null, null, null, null, null, null, "RimWorld is a top-down construction and management simulation video game by Montreal-based developer Ludeon Studios. Originally called Eclipse Colony, it was initially released as a Kickstarter crowdfunding project in early access for Microsoft Windows, macOS, and Linux in November 2013, and was officially released on October 17, 2018.", null, 1, null, 50m, null, 0 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductID", "AltText", "CategoryID", "Discount", "ImageUrl", "LongDescription", "Name", "Notes", "OldPrice", "Picture1", "Picture2", "Picture3", "Picture4", "ProductAvailable", "QuantityPerUnit", "ShortDescription", "Size", "SupplierID", "UnitOnOrder", "UnitPrice", "UnitWeight", "UnitsInStock" },
+                values: new object[] { 2, "Mount & Blade II: Bannerlord", 1, 0m, "C:\\Users\\semih\\source\\repos/Pictures//Pictures/ProductPictures/Steam/bannerlord_logo.png", "27 Eylül 2012'de bir Türk şirketi olan TaleWords tarafından duyurulmuştur. Oyunun Grafikleri daha iyi gölgeleme ve daha yüksek detaylı modellerle önceki oyun olan Mount & Blade: Warband'a göre belirgin bir şekilde daha iyi hâle getirilmiştir. Karakter animasyonları hareket yakalama (motion capture) teknolojisi kullanılarak oluşturulmuş ve yüz animasyonları da canlandırılan duygularla iyileştirilerek güncelleneceği söylendi.", "Bannerlord", null, null, null, null, null, null, null, null, "Mount & Blade II: Bannerlord, Orta Çağ temalı bir rol yapma oyunu olan Mount & Blade serisinin bir oyunudur. Oyun, Türk firması TaleWorlds tarafından geliştiştirilmektedir. Oyun Steam'de Ekim 2016'da çıkmıştır. Fakat oyun için bir indirme imkanı sunulmamıştır. Gamescom 2019'da oyunun erken erişim tarihi verilmiş. Ayrıca bu çıkış tarihi Mount & Blade:Warband'ın 10. yılına denk gelmiş olacak.", null, 2, null, 160m, null, 0 });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -592,9 +599,9 @@ namespace GameStation.DAL.Migrations
                 column: "PaymentTypeID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_SubCategoryID",
+                name: "IX_Products_CategoryID",
                 table: "Products",
-                column: "SubCategoryID");
+                column: "CategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_SupplierID",
@@ -686,13 +693,10 @@ namespace GameStation.DAL.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "SubCategories");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Suppliers");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
         }
     }
 }

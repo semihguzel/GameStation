@@ -29,82 +29,20 @@ namespace GameStation.DAL.Mappings
             //Seed
             builder.HasData
             (
-            #region Steam Games
                 new Supplier
                 {
-                    //Rimworld
-                    CompanyName = "Ludeon Studios",
-                    ContactName = "Tynan Sylvester",
-                    ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //Bannerlord
-                    CompanyName = "TaleWorlds",
-                    ContactName = "Armağan Yavuz",
-                    ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //GTA V
-                    CompanyName = "Rockstar Games",
-                    ContactName = "Terry Donovan",
-                    ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //Crusader Kings 2, Europe Universalis 4, Hearts Of Iron 4
-                    CompanyName = "Paradox Interactive",
-                    ContactName = "Henrik Fâhraeus",
-                    ContactTitle = "Director"
-                },
-                new Supplier
-                {
-                    //Fallout,Skyrim
-                    CompanyName = "Bethesda Softworks",
-                    ContactName = "Christopher Weaver",
-                    ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //CSGO, Half-Life
-                    CompanyName = "Valve",
+                    SupplierID = 1,
+                    CompanyName = "Steam",
                     ContactName = "Gabe Newell",
                     ContactTitle = "Founder"
                 },
-                #endregion
-            #region Origin Games
                 new Supplier
                 {
-                    //The Sims 4,Battlefield,Fifa, A Way Out, Dead Space 3,Command & Conquer: Red Alert 3
+                    SupplierID = 2,
                     CompanyName = "Electronic Arts",
                     ContactName = "Trip Hawkins",
                     ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //Mass Effect, Dragon Age 2 Origins
-                    CompanyName = "Bioware",
-                    ContactName = "Ray Muzyka",
-                    ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //Doom
-                    CompanyName = "id Software LLC",
-                    ContactName = "Adrian Carmack",
-                    ContactTitle = "Founder"
-                },
-                new Supplier
-                {
-                    //Crysis 3
-                    CompanyName = "Crytek",
-                    ContactName = "Cevat Yerli",
-                    ContactTitle = "Founder"
                 }
-
-
-                #endregion
             );
         }
     }

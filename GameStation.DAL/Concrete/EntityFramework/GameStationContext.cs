@@ -25,7 +25,6 @@ namespace GameStation.DAL.Concrete.EntityFramework
         public DbSet<RecentlyView> RecentlyViews { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<ShippingDetail> ShippingDetails { get; set; }
-        public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<WishList> WishLists { get; set; }
 
@@ -41,7 +40,6 @@ namespace GameStation.DAL.Concrete.EntityFramework
             modelBuilder.ApplyConfiguration(new RecentlyViewMapping());
             modelBuilder.ApplyConfiguration(new ReviewMapping());
             modelBuilder.ApplyConfiguration(new ShippingDetailMapping());
-            modelBuilder.ApplyConfiguration(new SubCategoryMapping());
             modelBuilder.ApplyConfiguration(new SupplierMapping());
             modelBuilder.ApplyConfiguration(new WishListMapping());
             base.OnModelCreating(modelBuilder);

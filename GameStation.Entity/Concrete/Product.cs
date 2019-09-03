@@ -16,7 +16,7 @@ namespace GameStation.Entity.Concrete
 
         public int SupplierID { get; set; }
 
-        public int SubCategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         public string QuantityPerUnit { get; set; }
 
@@ -56,7 +56,7 @@ namespace GameStation.Entity.Concrete
 
 
 
-        public virtual SubCategory SubCategory { get; set; }
+        public virtual Category Category { get; set; }
 
         public virtual Supplier Supplier { get; set; }
 

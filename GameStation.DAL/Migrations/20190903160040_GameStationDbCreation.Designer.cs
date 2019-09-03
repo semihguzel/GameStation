@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameStation.DAL.Migrations
 {
     [DbContext(typeof(GameStationContext))]
-    [Migration("20190903123608_GameStationDbCreation")]
+    [Migration("20190903160040_GameStationDbCreation")]
     partial class GameStationDbCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,13 @@ namespace GameStation.DAL.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new { CategoryID = 1, CategoryName = "FPS", Description = "First Person Shooter games", IsActive = true },
+                        new { CategoryID = 2, CategoryName = "TPS", Description = "Third Person Shooter games", IsActive = true },
+                        new { CategoryID = 3, CategoryName = "RPG", Description = "Role Playing Game", IsActive = true },
+                        new { CategoryID = 4, CategoryName = "Strategy", Description = "Strategy Game", IsActive = true }
+                    );
                 });
 
             modelBuilder.Entity("GameStation.Entity.Concrete.Customer", b =>
@@ -341,6 +348,8 @@ namespace GameStation.DAL.Migrations
                         .IsRequired()
                         .HasMaxLength(200);
 
+                    b.Property<int>("CategoryID");
+
                     b.Property<decimal>("Discount");
 
                     b.Property<string>("ImageUrl")
@@ -380,12 +389,10 @@ namespace GameStation.DAL.Migrations
 
                     b.Property<string>("ShortDescription")
                         .IsRequired()
-                        .HasMaxLength(300);
+                        .HasMaxLength(500);
 
                     b.Property<string>("Size")
                         .HasMaxLength(30);
-
-                    b.Property<int>("SubCategoryID");
 
                     b.Property<int>("SupplierID");
 
@@ -401,11 +408,16 @@ namespace GameStation.DAL.Migrations
 
                     b.HasKey("ProductID");
 
-                    b.HasIndex("SubCategoryID");
+                    b.HasIndex("CategoryID");
 
                     b.HasIndex("SupplierID");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new { ProductID = 1, AltText = "Rimworld", CategoryID = 4, Discount = 0m, ImageUrl = "C:\\Users\\semih\\source\\repos/Pictures//Pictures/ProductPictures/Steam/rimworld_logo.png", LongDescription = "The futuristic plot originally revolved around three characters being stranded on a planet located in the frontiers of known space (a 'rim world'), where their space liner crashed. The game is set in a universe where faster-than-light travel and superluminal communication are, so far, impossible, making large galactic empires inherently unfeasible. With its release on Steam the game came with the addition, among other things, of a scenario editor, allowing users to choose and modify different starting plots, with different numbers of characters, starting items and map effects available; however, the location of these plots still remained the same, that is, still on a 'rim world'", Name = "RimWorld", ShortDescription = "RimWorld is a top-down construction and management simulation video game by Montreal-based developer Ludeon Studios. Originally called Eclipse Colony, it was initially released as a Kickstarter crowdfunding project in early access for Microsoft Windows, macOS, and Linux in November 2013, and was officially released on October 17, 2018.", SupplierID = 1, UnitPrice = 50m, UnitsInStock = 0 },
+                        new { ProductID = 2, AltText = "Mount & Blade II: Bannerlord", CategoryID = 1, Discount = 0m, ImageUrl = "C:\\Users\\semih\\source\\repos/Pictures//Pictures/ProductPictures/Steam/bannerlord_logo.png", LongDescription = "27 Eylül 2012'de bir Türk şirketi olan TaleWords tarafından duyurulmuştur. Oyunun Grafikleri daha iyi gölgeleme ve daha yüksek detaylı modellerle önceki oyun olan Mount & Blade: Warband'a göre belirgin bir şekilde daha iyi hâle getirilmiştir. Karakter animasyonları hareket yakalama (motion capture) teknolojisi kullanılarak oluşturulmuş ve yüz animasyonları da canlandırılan duygularla iyileştirilerek güncelleneceği söylendi.", Name = "Bannerlord", ShortDescription = "Mount & Blade II: Bannerlord, Orta Çağ temalı bir rol yapma oyunu olan Mount & Blade serisinin bir oyunudur. Oyun, Türk firması TaleWorlds tarafından geliştiştirilmektedir. Oyun Steam'de Ekim 2016'da çıkmıştır. Fakat oyun için bir indirme imkanı sunulmamıştır. Gamescom 2019'da oyunun erken erişim tarihi verilmiş. Ayrıca bu çıkış tarihi Mount & Blade:Warband'ın 10. yılına denk gelmiş olacak.", SupplierID = 2, UnitPrice = 160m, UnitsInStock = 0 }
+                    );
                 });
 
             modelBuilder.Entity("GameStation.Entity.Concrete.RecentlyView", b =>
@@ -510,32 +522,6 @@ namespace GameStation.DAL.Migrations
                     b.ToTable("ShippingDetails");
                 });
 
-            modelBuilder.Entity("GameStation.Entity.Concrete.SubCategory", b =>
-                {
-                    b.Property<int>("SubCategoryID");
-
-                    b.Property<int>("CategoryID");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(250);
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50);
-
-                    b.Property<string>("Picture1")
-                        .HasMaxLength(500);
-
-                    b.Property<string>("Picture2")
-                        .HasMaxLength(500);
-
-                    b.HasKey("SubCategoryID");
-
-                    b.ToTable("SubCategories");
-                });
-
             modelBuilder.Entity("GameStation.Entity.Concrete.Supplier", b =>
                 {
                     b.Property<int>("SupplierID")
@@ -576,6 +562,11 @@ namespace GameStation.DAL.Migrations
                     b.HasKey("SupplierID");
 
                     b.ToTable("Suppliers");
+
+                    b.HasData(
+                        new { SupplierID = 1, CompanyName = "Steam", ContactName = "Gabe Newell", ContactTitle = "Founder" },
+                        new { SupplierID = 2, CompanyName = "Electronic Arts", ContactName = "Trip Hawkins", ContactTitle = "Founder" }
+                    );
                 });
 
             modelBuilder.Entity("GameStation.Entity.Concrete.WishList", b =>
@@ -735,9 +726,9 @@ namespace GameStation.DAL.Migrations
 
             modelBuilder.Entity("GameStation.Entity.Concrete.Product", b =>
                 {
-                    b.HasOne("GameStation.Entity.Concrete.SubCategory", "SubCategory")
+                    b.HasOne("GameStation.Entity.Concrete.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("SubCategoryID")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("GameStation.Entity.Concrete.Supplier", "Supplier")
@@ -769,14 +760,6 @@ namespace GameStation.DAL.Migrations
                     b.HasOne("GameStation.Entity.Concrete.Product", "Product")
                         .WithMany("Reviews")
                         .HasForeignKey("ProductID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("GameStation.Entity.Concrete.SubCategory", b =>
-                {
-                    b.HasOne("GameStation.Entity.Concrete.Category", "Category")
-                        .WithMany("SubCategories")
-                        .HasForeignKey("SubCategoryID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

@@ -22,7 +22,7 @@ namespace GameStation.BLL.Concrete
 
         public void Delete(int productId)
         {
-            _productDal.Delete(productId);
+            _productDal.Delete(_productDal.Get(x => x.ProductID == productId));
         }
 
         public List<Product> GetAll()
@@ -32,7 +32,7 @@ namespace GameStation.BLL.Concrete
 
         public List<Product> GetByCategoryId(int categoryId)
         {
-            return _productDal.GetList(x => x.SubCategoryID == categoryId);
+            return _productDal.GetList(x => x.CategoryID == categoryId);
         }
 
         public Product GetById(int productId)
