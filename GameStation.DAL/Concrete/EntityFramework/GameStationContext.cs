@@ -42,6 +42,9 @@ namespace GameStation.DAL.Concrete.EntityFramework
             modelBuilder.ApplyConfiguration(new ShippingDetailMapping());
             modelBuilder.ApplyConfiguration(new SupplierMapping());
             modelBuilder.ApplyConfiguration(new WishListMapping());
+            modelBuilder.ApplyConfiguration(new CustomIdentityRoleMapping());
+            modelBuilder.ApplyConfiguration(new CustomIdentityUserMapping());
+            modelBuilder.ApplyConfiguration(new IdentityUserRoleMapping());
             base.OnModelCreating(modelBuilder);
         }
     }
