@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameStation.BLL.Abstract
 {
-    interface IProductService
+    public interface IProductService
     {
         List<Product> GetAll();
         List<Product> GetByCategoryId(int categoryId);

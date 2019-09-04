@@ -9,13 +9,13 @@ namespace GameStation.DAL
     {
         public static readonly Guid adminId = Guid.NewGuid();
         public static readonly Guid userId = Guid.NewGuid();
-        private static string picturesDirectory;
-        public static string PicturesDirectory
+        private static string rootDirectory;
+        public static string RootDirectory
         {
             get
             {
-                picturesDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/Pictures/";
-                return picturesDirectory;
+                rootDirectory = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName + "/GameStation";
+                return rootDirectory;
             }
         }
     }

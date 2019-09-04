@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GameStation.BLL.Abstract;
+using GameStation.BLL.Concrete;
+using GameStation.DAL.Abstract;
 using GameStation.DAL.Concrete.EntityFramework;
 using GameStation.Entity.Concrete;
 using GameStation.WebUI.Middlewares;
@@ -20,6 +23,8 @@ namespace GameStation.WebUI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IProductDal, EfProductDal>();
             services.AddIdentity<CustomIdentityUser, CustomIdentityRole>().AddEntityFrameworkStores<GameStationContext>().AddDefaultTokenProviders();
             services.AddMvc();
         }

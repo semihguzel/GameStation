@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GameStation.BLL\GameStation.BLL.csproj" />
     <ProjectReference Include="..\GameStation.DAL\GameStation.DAL.csproj" />
     <ProjectReference Include="..\GameStation.Entity\GameStation.Entity.csproj" />
   </ItemGroup>

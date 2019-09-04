@@ -4,5 +4,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="row">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#origin" data-toggle="tab">Origin</a>
+        </li>
+        <li>
+            <a href="#steam" data-toggle="tab">Steam</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        @*<div class="tab-pane fade in active" id="origin">
+                <ul>
+                    @{
+                        foreach (var item in ViewBag.Origin)
+                        {
+                            <li class="list-unstyled col-md-4">
+                                <a href="@Url.Action("ProductDetail","Product",new {id = item.ProductID })"><img src="@Url.Content(item.ImageUrl)" alt="@Url.Content(item.AltText)" class="thumbnail" style="margin:30px;" /></a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>*@
 
+
+        <div class="tab-pane fade" id="steam">
+            <div class="row">
+                <div class="card-deck">
+
+                    <ul style="list-style-type:none;">
+                        @{
+
+                            foreach (var item in ViewBag.Steam)
+                            {
+                                <li class="col-md-4">
+                                    <div class="card" style="max-width: 18rem;">
+                                        <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@item.ProductID"><img src="@item.ImageUrl" alt="@item.AltText" class="card-img-top auto-width" style="margin:30px;" /></a>
+                                        <div class="card-body">
+                                            <h5 class="card-title">@item.Name</h5>
+                                            <p class="card-text">@item.ShortDescription</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
