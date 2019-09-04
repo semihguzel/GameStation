@@ -26,7 +26,7 @@ namespace GameStation.DAL.Mappings
 
             builder.HasMany(x => x.Products).WithOne(x => x.Supplier).HasForeignKey(x => x.SupplierID).IsRequired();
 
-            //Seed
+            //Seed Data
             builder.HasData
             (
                 new Supplier

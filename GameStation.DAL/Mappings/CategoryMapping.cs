@@ -21,7 +21,7 @@ namespace GameStation.DAL.Mappings
 
             builder.HasMany(x => x.Products).WithOne(x => x.Category).HasForeignKey(x => x.CategoryID).IsRequired();
 
-            //Seed
+            //Seed Data
             builder.HasData
             (
                 new Category
@@ -58,6 +58,13 @@ namespace GameStation.DAL.Mappings
                     CategoryName = "Simülasyon",
                     IsActive = true,
                     Description = "Simülasyon oyunları"
+                },
+                new Category
+                {
+                    CategoryID = 6,
+                    CategoryName = "Aksiyon",
+                    IsActive = true,
+                    Description = "Aksiyon oyunları"
                 }
             );
         }

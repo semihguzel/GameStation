@@ -34,11 +34,9 @@ namespace GameStation.DAL.Mappings
             builder.HasMany(x => x.Reviews).WithOne(x => x.Product).HasForeignKey(x => x.ProductID).IsRequired();
             builder.HasMany(x => x.WishLists).WithOne(x => x.Product).HasForeignKey(x => x.ProductID).IsRequired();
 
-            //Seed
-            #region Steam Games
+            //Seed Data
             builder.HasData
             (
-                //TODO: ImageUrl's have been set. Download the images and put it to the specified directory.
                 new Product
                 {
                     ProductID = 1,
@@ -203,13 +201,103 @@ namespace GameStation.DAL.Mappings
                     Name = "FIFA 19",
                     UnitPrice = 245,
                     Discount = 0,
-                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/battlefield4_logo.png",
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/fifa19_logo.png",
                     ShortDescription = "FIFA 19, EA Vancouver tarafından geliştirilen ve Electronic Arts şirketinin yayımcılığını yaptığı spor simülasyon video oyunu olarak sunulan FIFA serisi. 6 Haziran 2018 tarihinde yapılan E3 2018 basın konferansında, oyunun 28 Eylül 2018 tarihinde PlayStation 3, PlayStation 4, Xbox 360, Xbox One, Nintendo Switch ve Microsoft Windows platformlarında çıkmış olacağı açıklanmıştır.",
                     LongDescription = "FIFA serisinin 26. oyunudur. FIFA 18 oyununda da olduğu gibi oyunun standart sürümünün kapağında Cristiano Ronaldo yer almıştır. Ancak, İspanyol kulübü Real Madrid'den İtalyan ekibi Juventus'a beklenmedik transferi sonrası kapak resmi yenilenmiştir. Ayrıca Şampiyonlar sürümünün kapağında Neymar yer almıştır. Şubat 2019'da düzenlenen standart sürümün kapağında Neymar, Kevin De Bruyne ve Paulo Dybala'ya yer verilmiştir.",
                     AltText = "FIFA 19"
+                },
+                new Product
+                {
+                    ProductID = 14,
+                    SupplierID = 2,
+                    CategoryID = 6,
+                    Name = "A Way Out",
+                    UnitPrice = 155,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/awayout_logo.png",
+                    ShortDescription = "A Way Out is an action-adventure game developed by Hazelight Studios and published by Electronic Arts under their EA Originals program. It is the second video game to be directed by Josef Fares after Brothers: A Tale of Two Sons. The game has no single-player option: it is only playable in either online or local split screen co-op between two players.",
+                    LongDescription = "A Way Out is an action-adventure game played from a third-person perspective. It is specifically designed for split-screen cooperative multiplayer, which means that it must be played with another player through either local or online play. In the game, players control Leo and Vincent, two convicted prisoners who must break out of prison and stay on the run from authorities. As the story of both protagonists is told simultaneously, their progress may not be synchronized, which may result in one player being able to control their character, while another is watching a cutscene. Players need to cooperate with each other in order to progress, and each situation can be approached differently, with both characters taking different roles.",
+                    AltText = "A Way Out"
+                },
+                new Product
+                {
+                    ProductID = 15,
+                    SupplierID = 2,
+                    CategoryID = 2,
+                    Name = "Dead Space 3",
+                    UnitPrice = 200,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/deadspace3_logo.png",
+                    ShortDescription = "Dead Space 3 is a survival horror action-adventure video game developed by Visceral Games and published by Electronic Arts. Announced at E3 2012 and released internationally in February 2013, it is the sequel to Dead Space 2 and the third main entry in the Dead Space series.",
+                    LongDescription = "In Dead Space 3, Isaac Clarke teams up with EarthGov Sergeant John Carver as they travel to Tau Volantis, an ice-covered planet, to end the Marker and Necromorph threat for good. Development of the game began after the completion of Dead Space 2.It is the only game in the Dead Space series to feature online co - op. The game received positive reviews from game critics upon release; reviewers praised the game's rewarding action gameplay, although criticism was directed at the focus on action over horror, as well as a weak and unfocused story compared to its predecessors. Despite poor sales, EA and Visceral expressed interest in a sequel. However, Visceral Games was shut down in 2017, and no confirmation that a new installment in the series is being developed by another studio.",
+                    AltText = "Dead Space 3"
+                },
+                new Product
+                {
+                    ProductID = 16,
+                    SupplierID = 2,
+                    CategoryID = 4,
+                    Name = "Command & Conquer Red Alert 3",
+                    UnitPrice = 200,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/cc-redalert_logo.png",
+                    ShortDescription = "Command & Conquer: Red Alert 3 (Kısaca C&C:RA3) EA Los Angeles tarafından geliştirilip, Electronic Arts tarafından 2008'de yayınlanan bir gerçek zamanlı strateji oyunu. 14 Şubat 2008'de EA LA tarafından geliştirildiği duyuruldu ve 28 Ekim 2008'de Windows tabanlı bilgisayarlar için; 11 Kasım'da Xbox 360 konsolu için yayınlandı.",
+                    LongDescription = "Sovyetler ile Müttefikler arasındaki savaşta müttefikler üstünlüğü sağlamak ve Sovyetler savaşı kaybetmek üzereydi. Bunun üzerine Premier Cherdenko, gizli yürüttüğü bir zaman makinesi projesini hayata geçirmeye karar vermişti.Zaman makinesi tam olarak hazır değildi ve bu makineyi icat eden doktor Zelisnsky Cherdenko'yu durdumayı çalışmıştı ama Cherkenko yanına General Krukov'u da alıp geçmişe gitmeye kararlıydı.",
+                    AltText = "Command & Conquer Red Alert 3"
+                },
+                new Product
+                {
+                    ProductID = 17,
+                    SupplierID = 2,
+                    CategoryID = 6,
+                    Name = "Mass Effect",
+                    UnitPrice = 100,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/masseffect_logo.png",
+                    ShortDescription = "Oyun gelecekte 2183 yılında geçmektedir. Oyuncu Commander Shepard isimli bir karakteri canlandirir ve bu karakter galaksiyi gemisi SSV Normandy ile araştırma altinda tutmaktadir.",
+                    LongDescription = "Mass Effect'in devamı olan Mass Effect 2, 26 ocak 2010 tarihinde piyasaya sürülmüştür. Mass Effect 2'de birinci oyundan kalan kayıt dosyalarını aktarabilirsiniz ki bu sizin oyun boyunca yapacağınız şeyleride değiştirecektir.Mass Effect serisi Mass Effect 2 ile beraber IGN ve EA Games Entertainment açıklamasıyla tüm platformlarda 34.5 milyon satarak iyi bir başarı elde etmiştir.Aynı zamanda EA Games in en çok kazandıran ilk 5 oyunu arasında yer almaktadır.",
+                    AltText = "Mass Effect"
+                },
+                new Product
+                {
+                    ProductID = 18,
+                    SupplierID = 2,
+                    CategoryID = 3,
+                    Name = "Dragon Age: Origins",
+                    UnitPrice = 54,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/da-origins_logo.png",
+                    ShortDescription = "Dragon Age: Origins (Türkçesi: Ejderha Çağı: Başlangıçlar), BioWare tarafından geliştirilen ve Electronic Arts tarafından dağıtılan tek oyunculu rol yapma video oyunudur. Dragon Age serisinin ilk oyunu olup Kasım 2009'da Microsoft Windows, PlayStation 3 ve Xbox 360; 21 Aralık 2009'da ise OS X için satışa sunulmuştur.",
+                    LongDescription = "Kurgusal Ferelden krallığında, sivil sürtüşmelerin yaşandığı bir dönemde kurgulanmış oyunda oyuncular; bir elf, insan ve cüce geçmişinden gelen bir savaşçı, büyücü veya bir hırsız rolünde; krallığa yaklaşmakta olan ve 'Darkspawn' (Zebâni) olarak bilinen şeytani güçlerin istilasına karşı krallığı bir araya getirmekle görevlidirler. Oyuncunun karakteri, eskilerden beri var olan 'Grey Warden' tertibinde silâh altına alınır. Gri Muhafızlar, Zebâni olarak bilinen şeytani güçlere karşı gelip, 'Yıkım' (Blight) olarak bilinen, zebânileri komuta eden Şahlanmış Şeytan'ı (Archdemon) yenmekle görevlendirilmişlerdir. Oyun, kuş bakışı perspektife değiştirilebilen üçüncü şahıs perspektifi ile oynanır. Oyun boyunca oyuncular, oyunun ana hikâyesinde ve ilerlenmesinde önemli rol oynayan ve maceraları boyunca eşlik edecek çeşitli karakterler ile karşılaşırlar.",
+                    AltText = "Dragon Age: Origins"
+                },
+                new Product
+                {
+                    ProductID = 19,
+                    SupplierID = 2,
+                    CategoryID = 1,
+                    Name = "Crysis 3",
+                    UnitPrice = 54,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/crysis3_logo.png",
+                    ShortDescription = "Crysis 3, Crytek tarafından geliştirilmiş, Electronic Arts tarafından ise yayımcılığı yapılmış olan bilim kurgu türü video oyunudur. Crysis 3 serinin diğer oyunları gibi Türkçe alt yazı ve seslendirme içermektedir.",
+                    LongDescription = "Crysis 3, Crysis 2'den 24 yıl sonrasında yani 2047 yılında ve bir kez daha New York şehrinde geçiyor. İkinci oyunda gerçekleşen büyük savaşın ardından Prophet, Crynet tarafından hapse atılır ve Cephler (uzaylılar) tarafından dünya üzerinde o ana kadar görülmemiş en büyük işgal gerçekleştirilir. Ayrıca New York, Crysis 2'nin sonundaki büyük patlamadan sonra sular altında kalır ve şehir ormanımsı bir hal alır. Bu olaylardan sonra şehrin bir kısmı Cell Corporation tarafından Nanodome adı verilen dev bir fanusun içine alınır. Nanodome içerisindeki alana ise 'New York City Liberty Dome' adı verilir. Cell Corporation bu fanusun amacının karantina bölgesi oluşturmak ve insanları uzaylılardan korumak olduğunu söylese de, Prophet, Cell Corporation'ın Nanodome içerisinde dünyayı ele geçirmek için teknoloji geliştirdiğini öngörür. Crysis 3'te ana karakter Prophet olacak. Prophet bu defa intikam için savaşacak.",
+                    AltText = "Crysis 3"
+                },
+                new Product
+                {
+                    ProductID = 20,
+                    SupplierID = 2,
+                    CategoryID = 1,
+                    Name = "Star Wars Battlefront",
+                    UnitPrice = 100,
+                    Discount = 0,
+                    ImageUrl = Tools.PicturesDirectory + "/Pictures/ProductPictures/Steam/starwars-battlefron_logo.png",
+                    ShortDescription = "Star Wars: Battlefront, DICE tarafından geliştirilen, Electronic Arts'ın ise yayımcılığı yaptığı video oyunudur.",
+                    LongDescription = "Oyunda hikâye modu bulunmamakta ve genel olarak çok oyunculu bölüme odaklı. Ama oyuncuların offline olarak, tek başlarına oynayabilecekleri görevler de bulunuyor. Ayrıca oyuncular bu görevleri arkadaşlarıyla birlikte Co-op (kooperatif) olarak da oynayabilirler. Co-op (kooperatif) görevler konsollarda split screen olarak oynanabilir. Oyun hem birinci şahıs nişancı hem de üçüncü şahıs nişancı olarak oynanabiliyor. Oyuncular Rebel Alliance (Asi Birliği) ya da Stormtrooper taraflarından birini seçerek birbirleriyle savaşıyorlar. Ayrıca Darth Vader ve Boba Fett gibi Star Wars evreninin önemli karakterleri de oynanabiliyor. Oyuncular karakterlerini özelleştirebilirler. Hoth, Endor, Tatooine, Sullust gezegenlerinde geçecek olan oyunda 12 tane harita bulunuyor. Haritalar 40 oyuncuyu destekliyor. Oyunda X-Wing, Millennium Falcon, TIE Fighters ve AT-ST Walker gibi oyuncuların kullanabileceği birçok araç bulunuyor.",
+                    AltText = "Star Wars Battlefront"
                 }
             );
-            #endregion
 
         }
     }
