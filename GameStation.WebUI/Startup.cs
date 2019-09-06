@@ -41,6 +41,7 @@ namespace GameStation.WebUI
             app.UseAuthentication();
             app.UseMvc(ConfigureRoutes);
             app.UseStatusCodePages();
+            app.UseStaticFiles();
         }
         
         private void ConfigureRoutes(IRouteBuilder routeBuilder)
