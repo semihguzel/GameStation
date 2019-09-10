@@ -4,118 +4,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <link href="~/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/Site.css" rel="stylesheet" />
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/css/bootstrap.css" rel="stylesheet" />*@
+    @*<link href="~/css/Site.css" rel="stylesheet" />*@
     <script src="~/js/modernizr-2.6.2.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        #myBtn {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: grey;
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 4px;
-            width: 55px;
-            height: 55px;
-        }
-
-            #myBtn:hover {
-                background-color: #555;
-            }
-    </style>
-
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Ana Sayfa", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Origin", "Product", "Product", new { id = 1 }, new { @class = "navbar-brand", @type = "submit" })
-                @Html.ActionLink("Steam", "Product", "Product", new { id = 2 }, new { @class = "navbar-brand", @type = "submit" })
-                @Html.ActionLink("uPlay", "Product", "Product", new { id = 3 }, new { @class = "navbar-brand", @type = "submit" })
-            </div>
 
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    @*@{
-                            if (Session["OnlineKullanici"] == null)
-                            {
-                                <li>@Html.ActionLink("Üye Ol", "Register", "Login")</li>
-                                <li>@Html.ActionLink("Giriş Yap", "Login", "Login")</li>
-                            }
-                            else
-                            {
-                                var db = new MVCeTicaret.Models.Context();
-                                string username = Session["OnlineKullanici"].ToString();
-                                <li>
-                                    <a href="@Url.Action("Cart","Shopping",new { id = MVCeTicaret.Models.TemporaryUserData.UserID })">
-                                        Sepetiniz
-                                        <span class="badge">@db.OrderDetails.Where(x => x.CustomerID == MVCeTicaret.Models.TemporaryUserData.UserID && x.IsCompleted == false).ToList().Count</span>
-                                    </a>
-                                </li>
-                                <li>
-
-                                    <a href="@Url.Action("WishList","Shopping",new { id = MVCeTicaret.Models.TemporaryUserData.UserID })">
-                                        İstek Listeniz
-                                        <span class="badge">
-                                            @db.WishLists.Where(x => x.CustomerID == MVCeTicaret.Models.TemporaryUserData.UserID && x.IsActive == true).ToList().Count
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>@Html.ActionLink(Session["OnlineKullanici"].ToString(), "UpdateProfile", "Profile")</li>
-                                <li>@Html.ActionLink("Çıkış Yap", "LogOut", "Login")</li>
-                            }
-                        }*@
-                </ul>
-            </div>
-
-        </div>
-    </div>
+    @await Component.InvokeAsync("Navbar")
 
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
-
-    <button onclick="topFunction()" id="myBtn" class="btn"><i class="fa fa-angle-up"></i></button>
-
-    <script>
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.getElementById("myBtn").style.display = "block";
-            } else {
-                document.getElementById("myBtn").style.display = "none";
-            }
-        }
-
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-    </script>
-    <script src="~/js/jquery-1.10.2.js"></script>
-    <script src="~/js/bootstrap.js"></script>
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    @*<script src="~/js/jquery-1.10.2.js"></script>*@
+    @*<script src="~/js/bootstrap.js"></script>*@
     @RenderSection("scripts", false)
 </body>
 </html>
