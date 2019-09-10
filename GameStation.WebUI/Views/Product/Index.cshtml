@@ -1,34 +1,19 @@
-﻿
+﻿@model GameStation.WebUI.Models.ProductListViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h3 style="margin-top:5px;">Oyunlar</h3>
+<hr />
+<div class="row" style="margin-top:10px;">
 
-<div class="row">
-    <div class="tab-content">
-        <div class="tab-pane fade" id="steam">
-            <div class="row">
-                <div class="card-deck">
-
-                    <ul style="list-style-type:none;">
-                        @{
-
-                            foreach (var item in ViewBag.Steam)
-                            {
-                                <li class="col-md-4">
-                                    <div class="card" style="max-width: 18rem;">
-                                        <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@item.ProductID"><img src="@item.ImageUrl" alt="@item.AltText" class="card-img-top auto-width" style="margin:30px;" /></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title">@item.Name</h5>
-                                            <p class="card-text">@item.ShortDescription</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
+    @foreach (var product in Model.Products)
+    {
+        <div class="card" style="width: 16rem; margin-left:5px; margin-right:5px; margin-top:5px; margin-bottom:5px;">
+            <img src="@product.ImageUrl" class="card-img-top" alt="..." style="height:11rem;">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
         </div>
-    </div>
+    }
 </div>

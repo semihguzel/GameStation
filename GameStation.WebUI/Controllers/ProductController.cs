@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GameStation.BLL.Abstract;
 using GameStation.WebUI.Enums;
+using GameStation.WebUI.Models;
 
 namespace GameStation.WebUI.Controllers
 {
@@ -15,11 +16,14 @@ namespace GameStation.WebUI.Controllers
         {
             _productService = productService;
         }
-        public IActionResult Index()
+        public IActionResult Index(int supplierId = 1)
         {
-            ViewBag.Steam = _productService.GetAll().Where(x => x.SupplierID == Convert.ToInt32(SupplierEnum.Steam)).OrderBy(x => Guid.NewGuid()).Take(3);
-            //ViewBag.Origin = _productService.GetAll().Where(x => x.SupplierID == Convert.ToInt32(SupplierEnum.Origin)).OrderBy(x => Guid.NewGuid()).Take(6);
-            return View();
+            var randomProducts = _productService.GetAll().Where(x => x.SupplierID == supplierId).OrderBy(x => Guid.NewGuid()).Take(8).ToList();
+            ProductListViewModel model = new ProductListViewModel()
+            {
+                Products = randomProducts
+            };
+            return View(model);
         }
     }
 }
