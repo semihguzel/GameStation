@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameStation.BLL.Abstract
 {
-    interface IRecentlyViewService
+    public interface IRecentlyViewService
     {
         List<RecentlyView> GetAll();
         RecentlyView GetById(int Id);

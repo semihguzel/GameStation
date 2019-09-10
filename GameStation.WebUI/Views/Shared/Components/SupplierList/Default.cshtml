@@ -1,0 +1,8 @@
+﻿@model GameStation.WebUI.Models.SupplierListViewModel
+
+        <div class="d-flex justify-content-center">
+            @foreach (var supplier in Model.Suppliers)
+            {
+                <div class="p-3 badge badge-dark" style="margin-top:5px; margin-left:5px;"><a asp-controller="Supplier" asp-action="SupplierList" asp-route-supId="@supplier.SupplierID" >@supplier.CompanyName</a></div>
+            }
+    </div>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameStation.BLL.Abstract
 {
-    interface IWishListService
+    public interface IWishListService
     {
         List<WishList> GetAll();
         WishList GetById(int Id);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameStation.BLL.Abstract
 {
-    interface IShippingDetailService
+    public interface IShippingDetailService
     {
         List<ShippingDetail> GetAll();
         ShippingDetail GetById(int Id);

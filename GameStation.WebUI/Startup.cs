@@ -25,6 +25,8 @@ namespace GameStation.WebUI
         {
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<IProductDal, EfProductDal>();
+            services.AddScoped<ISupplierService, SupplierManager>();
+            services.AddScoped<ISupplierDal, EfSupplierDal>();
             services.AddIdentity<CustomIdentityUser, CustomIdentityRole>().AddEntityFrameworkStores<GameStationContext>().AddDefaultTokenProviders();
             services.AddMvc();
         }

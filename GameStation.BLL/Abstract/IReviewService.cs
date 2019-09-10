@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameStation.BLL.Abstract
 {
-    interface IReviewService
+    public interface IReviewService
     {
         List<Review> GetAll();
         Review GetById(int Id);

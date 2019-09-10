@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameStation.BLL.Abstract
 {
-    interface IPaymentTypeService
+    public interface IPaymentTypeService
     {
         List<PaymentType> GetAll();
         PaymentType GetById(int Id);
